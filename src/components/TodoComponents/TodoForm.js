@@ -6,7 +6,8 @@ const TodoForm = props => {
             <input
                 type="text"
                 onChange={props.handelChanges}
-                placeholder="add a task"
+                placeholder="Add Value"
+                value={props.value}
             />
             <button>Add Task</button>
             <button onClick={props.handelClear}>Clear All Tasks</button>

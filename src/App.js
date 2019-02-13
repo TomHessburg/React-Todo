@@ -2,18 +2,7 @@ import React from 'react';
 import ToDoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
-const myTasks = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  },
-];
+const myTasks = [];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -40,21 +29,17 @@ class App extends React.Component {
 
     const newTask = {
       task: this.state.task,
-      id: Math.floor(Math.random()*100000000),
-      complete: false
+      id: Date.now(),
+      completed: false
     }
-    
-
     this.setState({
       tasks: [...this.state.tasks, newTask],
       task: "",
       id: "",
       completed: false
     })
-    console.log(this.state.tasks)
+    //console.log(this.state.tasks);
   }
-
-
   handelClear = event => {
       event.preventDefault();
 
@@ -62,14 +47,14 @@ class App extends React.Component {
         tasks: [],
         task: "",
         id: "",
-        complete: false
+        complete: false,
+        holder: "add event"
       })
   }
-  handelChanges = event => {
-      this.setState({
-        task: event.target.value
-      })
-      console.log(this.task)
+  handelChanges = e => {
+    this.setState({
+      task: e.target.value
+    })
   }
 
 
@@ -79,9 +64,11 @@ class App extends React.Component {
         <h2>My Todo App!</h2>
         <ToDoList tasks={this.state.tasks}/>
         <TodoForm 
+        value={this.state.task}
         handelChanges={this.handelChanges}
         handelAddToDo={this.handelAddToDo} 
         handelClear={this.handelClear} 
+        holderText={this.state.holder}
         />
       </div>
     );

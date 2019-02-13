@@ -27,16 +27,33 @@ class App extends React.Component {
       tasks: myTasks,
       task: "",
       id: "",
-      complete: false
+      completed: false
     }
 
   }
 
+
+
+
   handelAddToDo = event => {
     event.preventDefault();
 
-    console.log("adding");
+    const newTask = {
+      task: this.state.task,
+      id: Math.floor(Math.random()*100000000),
+      complete: false
+    }
+    
+
+    this.setState({
+      tasks: [...this.state.tasks, newTask],
+      task: "",
+      id: "",
+      completed: false
+    })
+    console.log(this.state.tasks)
   }
+
 
   handelClear = event => {
       event.preventDefault();
@@ -48,13 +65,24 @@ class App extends React.Component {
         complete: false
       })
   }
+  handelChanges = event => {
+      this.setState({
+        task: event.target.value
+      })
+      console.log(this.task)
+  }
+
 
   render() {
     return (
       <div>
         <h2>My Todo App!</h2>
         <ToDoList tasks={this.state.tasks}/>
-        <TodoForm handelAddToDo={this.handelAddToDo} handelClear={this.handelClear} />
+        <TodoForm 
+        handelChanges={this.handelChanges}
+        handelAddToDo={this.handelAddToDo} 
+        handelClear={this.handelClear} 
+        />
       </div>
     );
   }

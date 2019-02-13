@@ -34,12 +34,19 @@ class App extends React.Component {
 
   handelAddToDo = event => {
     event.preventDefault();
+
     console.log("adding");
   }
 
   handelClear = event => {
       event.preventDefault();
-      console.log("clearing");
+
+      this.setState({
+        tasks: [],
+        task: "",
+        id: "",
+        complete: false
+      })
   }
 
   render() {

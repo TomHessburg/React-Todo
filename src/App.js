@@ -20,14 +20,10 @@ class App extends React.Component {
       tasks: myTasks,
       task: "",
       id: "",
-      completed: false
+      completed: false,
+      searchValue: ""
     }
-
   }
-
-
-
-
   handelAddToDo = event => {
     event.preventDefault();
 
@@ -55,23 +51,15 @@ class App extends React.Component {
         holder: "add event"
       })
   }
-  handelChanges = e => {
-    this.setState({
-      task: e.target.value
-    })
-  }
 
   handelClearCompleted = e => {
     e.preventDefault();
-    console.log('running!');
 
     this.setState({
       tasks: this.state.tasks.filter(task => !task.completed)
     });
   };
-
   toggleItem = itemId => {
-    console.log(this.state.tasks);
     this.setState({
       tasks: this.state.tasks.map(task => {
         if(itemId === task.id){
@@ -84,6 +72,23 @@ class App extends React.Component {
       })
     })
   }
+  handelChanges = e => {
+    this.setState({
+      task: e.target.value
+    })
+  }
+  
+
+
+  handelSearch = e => {
+    this.setState({
+      searchValue: e.target.value,
+      tasks: this.state.tasks.filter( task => {
+         task.task === e.target.value
+      })
+    })
+    console.log(e.target.value)
+  }
   
 
   render() {
@@ -94,6 +99,8 @@ class App extends React.Component {
       <h2>Your Todo List</h2>
       <TodoForm 
         value={this.state.task}
+        searchValue={this.state.searchValue}
+        handelSearch={this.handelSearch}
         handelChanges={this.handelChanges}
         handelAddToDo={this.handelAddToDo} 
         handelClear={this.handelClear} 

@@ -6,8 +6,15 @@ const TodoForm = props => {
             <input
                 type="text"
                 onChange={props.handelChanges}
-                placeholder="Add Value"
+                placeholder="add value..."
                 value={props.value}
+            />
+            <input
+                type="text"
+                onChange={props.handelSearch}
+                placeholder="search notes..."
+                value={props.searchValue}
+                onChange={props.handelSearch}
             />
             <div className="action-buttons">
                 <button>Add Task</button>

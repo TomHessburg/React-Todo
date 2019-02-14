@@ -73,7 +73,7 @@ form button{
 
 .task-complete{
     text-decoration: line-through;
-    transform: scale(0.85);
+    transform: scale(0.97);
     background: rgb(213, 50, 50);
     color: rgb(0, 0, 0);
     box-shadow: inset 0 0 5px black;

@@ -8,10 +8,12 @@ const ToDoList = props => {
     return(
         <div>
             {props.tasks.map(thisTask => {
-                return <ToDo task={thisTask.task} key={thisTask.id}/>
+                return <ToDo task={thisTask.task} key={thisTask.id} toggleItem={props.toggleItem} />
             })}
         </div>
     );
 }
+
+
 
 export default ToDoList;

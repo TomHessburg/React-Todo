@@ -1,0 +1,7 @@
+.todo-item{
+    color: red;
+}
+
+.task-complete{
+    text-decoration: underline;
+}

@@ -57,6 +57,15 @@ class App extends React.Component {
     })
   }
 
+  handelClearCompleted = e => {
+    e.preventDefault();
+    console.log('running!');
+
+    this.setState({
+      tasks: this.state.tasks.filter(task => !task.completed)
+    });
+  };
+
   toggleItem = itemId => {
     console.log(this.state.tasks);
     this.setState({
@@ -88,6 +97,7 @@ class App extends React.Component {
         handelAddToDo={this.handelAddToDo} 
         handelClear={this.handelClear} 
         holderText={this.state.holder}
+        handelClearCompleted={this.handelClearCompleted}
         />
       </div>
     );

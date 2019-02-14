@@ -4,4 +4,6 @@
 
 .task-complete{
     text-decoration: underline;
+    background: black;
+    color: white;
 }

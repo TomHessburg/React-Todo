@@ -9,10 +9,11 @@ const TodoForm = props => {
                 placeholder="Add Value"
                 value={props.value}
             />
-            <button>Add Task</button>
-            <button onClick={props.handelClear}>Clear All Tasks</button>
-            <button onClick={props.handelClearCompleted}>Clear Selected Tasks</button>
-
+            <div className="action-buttons">
+                <button>Add Task</button>
+                <button onClick={props.handelClear}>Clear All</button>
+                <button onClick={props.handelClearCompleted}>Clear Selected</button>
+            </div>
         </form>
     );
 }

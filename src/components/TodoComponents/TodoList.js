@@ -8,7 +8,7 @@ const ToDoList = props => {
     return(
         <div>
             {props.tasks.map(thisTask => {
-                return <ToDo task={thisTask.task} key={thisTask.id} toggleItem={props.toggleItem} />
+                return <ToDo taskName={thisTask.task} task={thisTask} key={thisTask.id} toggleItem={props.toggleItem} />
             })}
         </div>
     );

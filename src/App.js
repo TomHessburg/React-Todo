@@ -77,15 +77,13 @@ class App extends React.Component {
       task: e.target.value
     })
   }
-  
-
 
   handelSearch = e => {
     this.setState({
       searchValue: e.target.value,
-      tasks: this.state.tasks.filter( task => {
-         task.task === e.target.value
-      })
+      // tasks: this.state.tasks.filter( task => {
+      //    task.task === e.target.value
+      // })
     })
     console.log(e.target.value)
   }
@@ -107,7 +105,13 @@ class App extends React.Component {
         holderText={this.state.holder}
         handelClearCompleted={this.handelClearCompleted}
         />
+
+
+
+
+         { /* work in this one*/}
         <ToDoList 
+        searchValue={this.state.searchValue}
         tasks={this.state.tasks}
         toggleItem={this.toggleItem}
         />

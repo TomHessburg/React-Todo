@@ -7,7 +7,7 @@ import ToDo from './Todo'
 const ToDoList = props => {
     return(
         <div>
-            {props.tasks.map(thisTask => {
+            {props.tasks.filter(task => task.task.includes(props.searchValue)).map(thisTask => {
                 return <ToDo taskName={thisTask.task} task={thisTask} key={thisTask.id} toggleItem={props.toggleItem} />
             })}
         </div>
